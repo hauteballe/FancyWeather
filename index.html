@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fancy Weather</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/65c46dbb6f.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="object-wrapper">
+      <header>
+        <div class="d-flex justify-content-between control-panel">
+          <div class="control-buttons">
+            <button class="refresh-btn btn">
+              <i class="fas fa-sync-alt"></i>
+            </button>
+            <button class="language-btn btn">
+              <select name="language" class="language-select">
+                <option value="en" class="en">EN</option>
+                <option value="ru" class="ru">RU</option>
+              </select>
+            </button>
+            <button class="btn temperature-btn fahrenheit-btn">F</button>
+            <button class="btn temperature-btn celsius-btn active-btn">
+              C
+            </button>
+          </div>
+          <div class="control-search">
+            <div class="search">
+              <input
+                data-placeholder-i18n="searchPlaceholder"
+                type="search"
+                id="address-input"
+                class="search-input"
+                placeholder="Search city"
+              />
+              <button class="voice-search">
+                <i class="fas fa-microphone"></i>
+              </button>
+              <button data-i18n="searchButton" class="search-btn btn">
+                SEARCH
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="d-flex">
+          <div class="info col-6">
+            <div class="info-container">
+              <div class="location-and-time-container">
+                <div class="location-container">
+                  <h3 class="location-text"></h3>
+                </div>
+                <div class="time-container">
+                  <h3 class="time"></h3>
+                </div>
+              </div>
+              <div class="today-weather-container">
+                <div class="degree-container">
+                  <h1 class="degree"></h1>
+                </div>
+                <div class="icon-and-weather-container">
+                  <div class="icon-container">
+                    <span class="degree-icon">°</span>
+                    <img class="icon" />
+                  </div>
+                  <div class="weather-text">
+                    <p class="weather-description"></p>
+                    <div class="feels-like">
+                      <span data-i18n="feelsLikeLabel" class="feels-like-label"
+                        >FEELS LIKE</span
+                      >:
+                      <span class="feels-like-value"></span>
+                    </div>
+                    <div class="wind">
+                      <span data-i18n="windLabel" class="wind-label">WIND </span
+                      >:
+                      <span class="wind-value"></span>
+                    </div>
+                    <div class="humidity">
+                      <span data-i18n="humidityLabel" class="humidity-label"
+                        >HUMIDITY</span
+                      >:
+                      <span class="humidity-value"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="weather-forecast">
+                <div class="day-1 day-container">
+                  <p
+                    data-i18n="forecastDay1"
+                    class="forecast-day-1 forecast-day"
+                  ></p>
+                  <div class="forecast-degree-and-icon">
+                    <p class="forecast-degree"></p>
+                    <img class="forecast-icon" />
+                  </div>
+                </div>
+                <div class="day-2 day-container">
+                  <p
+                    data-i18n="forecastDay2"
+                    class="forecast-day-2 forecast-day"
+                  ></p>
+                  <div class="forecast-degree-and-icon">
+                    <p class="forecast-degree"></p>
+                    <img class="forecast-icon" />
+                  </div>
+                </div>
+                <div class="day-3 day-container">
+                  <p
+                    data-i18n="forecastDay3"
+                    class="forecast-day-3 forecast-day"
+                  ></p>
+                  <div class="forecast-degree-and-icon">
+                    <p class="forecast-degree"></p>
+                    <img class="forecast-icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="map-wrapper">
+              <div id="map-content"></div>
+            </div>
+            <div class="coords">
+              <div class="lat">
+                <span data-i18n="latitudeLabel" class="lat-label"
+                  >Latitude:</span
+                >
+                <span class="lat-value"></span>
+              </div>
+              <div class="lon">
+                <span data-i18n="longitudeLabel" class="lon-label"
+                  >Longitude:</span
+                >
+                <span class="lon-value"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIwzALxUPNbatRBj3Xi1Uhp0fFzwWNBkE&libraries=&v=weekly"
+      type="text/javascript"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+    <script src="const.js"></script>
+    <script src="translate.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
