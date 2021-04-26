@@ -15,7 +15,7 @@ const tzDate = (timezoneOffset = 0) => {
 
 class AppMap {
   constructor(defaultLat = 0, defaultLon = 0) {
-    this.map = new google.maps.Map(document.getElementById("map"), {
+    this.map = new google.maps.Map(document.getElementById("map-content"), {
       zoom: 8,
       center: {
         lat: defaultLat,
@@ -240,9 +240,10 @@ class App {
     fetch(
       `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lon}&key=78bd0ae1b89546c2a3434ed3b33b4a2e&language=${appLang}`
     )
-      .then((response) => {
-        return response.json();
-      })
+      .then((response) => response.json())
+      // .then((response) => {
+      //   return response.json();
+      // })
       .then((data) => {
         this.timezoneOffsetSeconds =
           data.results[0].annotations.timezone.offset_sec;

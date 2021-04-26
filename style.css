@@ -15,7 +15,7 @@ body {
   background-size: cover;
 }
 
-.wrapper {
+.object-wrapper {
   height: inherit;
   max-width: 1440px;
   margin: auto;
@@ -52,8 +52,10 @@ body {
   height: 100px;
 }
 
-.map {
+.map-wrapper {
   height: 100%;
+  padding-top: 220px;
+  padding-right: 90px;
 }
 
 .control-section {
@@ -156,12 +158,7 @@ body {
   font-weight: 700;
 }
 
-.map {
-  padding-top: 220px;
-  padding-right: 90px;
-}
-
-#map {
+#map-content {
   height: 275px;
   width: 275px;
   border-radius: 10%;
